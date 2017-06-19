@@ -11,8 +11,10 @@ import UIKit
 class ConversionViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var textField: UITextField!
-    let letters = CharacterSet.letters
     
+    @IBOutlet var labels: [UILabel]!
+    
+    let letters = CharacterSet.letters
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -35,8 +37,32 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let hour = Calendar.current.component(.hour, from: Date())
+        
+        print(hour)
+        
+        if (hour > 17) || (hour < 6) {
+            let darkModeBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            let darkModeTextColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+            let darkModePlaceholderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.5)
+            
+            view.backgroundColor = darkModeBackgroundColor
+            for label in labels {
+                label.textColor = darkModeTextColor
+            }
+            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName : darkModePlaceholderColor ])
+            textField.textColor = darkModeTextColor
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ConversionViewController loaded its view.")
         
         updateCelsiusLabel()
     }

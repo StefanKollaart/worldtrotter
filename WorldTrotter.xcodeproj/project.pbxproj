@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57077B961EF83F75008A1E53 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57077B951EF83F75008A1E53 /* ConversionViewController.swift */; };
 		57077B991EF84D80008A1E53 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57077B981EF84D80008A1E53 /* MapKit.framework */; };
+		57077B9B1EF84FAD008A1E53 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57077B9A1EF84FAD008A1E53 /* MapViewController.swift */; };
 		57AF1D6C1EF70B0100C320B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF1D6B1EF70B0100C320B7 /* AppDelegate.swift */; };
 		57AF1D711EF70B0100C320B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57AF1D6F1EF70B0100C320B7 /* Main.storyboard */; };
 		57AF1D731EF70B0100C320B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57AF1D721EF70B0100C320B7 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		57077B951EF83F75008A1E53 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 		57077B981EF84D80008A1E53 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		57077B9A1EF84FAD008A1E53 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		57AF1D681EF70B0100C320B7 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AF1D6B1EF70B0100C320B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57AF1D701EF70B0100C320B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				57AF1D6B1EF70B0100C320B7 /* AppDelegate.swift */,
 				57077B951EF83F75008A1E53 /* ConversionViewController.swift */,
 				57AF1D6F1EF70B0100C320B7 /* Main.storyboard */,
+				57077B9A1EF84FAD008A1E53 /* MapViewController.swift */,
 				57AF1D721EF70B0100C320B7 /* Assets.xcassets */,
 				57AF1D741EF70B0100C320B7 /* LaunchScreen.storyboard */,
 				57AF1D771EF70B0100C320B7 /* Info.plist */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57077B961EF83F75008A1E53 /* ConversionViewController.swift in Sources */,
+				57077B9B1EF84FAD008A1E53 /* MapViewController.swift in Sources */,
 				57AF1D6C1EF70B0100C320B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

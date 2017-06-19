@@ -79,6 +79,10 @@
                     <connections>
                         <outlet property="celsiusLabel" destination="V0b-xa-zhz" id="hP0-qs-tld"/>
                         <outlet property="textField" destination="3ML-O6-YKA" id="aUH-Ls-e1u"/>
+                        <outletCollection property="labels" destination="94V-hr-IPf" collectionClass="NSMutableArray" id="j5G-fy-hD3"/>
+                        <outletCollection property="labels" destination="V0b-xa-zhz" collectionClass="NSMutableArray" id="Z9j-a3-ngD"/>
+                        <outletCollection property="labels" destination="owj-Jk-Klj" collectionClass="NSMutableArray" id="vXG-EG-DSR"/>
+                        <outletCollection property="labels" destination="8f6-tE-o6w" collectionClass="NSMutableArray" id="CRZ-MS-xm3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,7 +97,7 @@
         <!--Map-->
         <scene sceneID="G5s-sF-HWM">
             <objects>
-                <viewController id="AzP-ev-FrS" sceneMemberID="viewController">
+                <viewController id="AzP-ev-FrS" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="EV7-gd-5g6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
