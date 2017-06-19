@@ -1,5 +1,5 @@
 # WorldTrotter #
-Application for iOS to convert Fahrenheit to Celsius. It's a code-along app from iOS Programming - Big Nerd Ranch, with code challenges at the end of each chapters, so I added some functionality on my own.
+Application for iOS to convert Fahrenheit to Celsius. It's a code-along app from iOS Programming - Big Nerd Ranch, with code challenges at the end of each chapter, so I added some functionality on my own.
 
 ## Platform ##
 Build for iOS in Swift.
