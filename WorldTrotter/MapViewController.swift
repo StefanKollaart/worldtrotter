@@ -8,10 +8,12 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
     var mapView: MKMapView!
+    let locationManager = CLLocationManager()
     
     override func loadView() {
         mapView = MKMapView()
@@ -34,6 +36,23 @@ class MapViewController: UIViewController {
         topConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
+        
+        let getLocationButton = UIButton()
+        getLocationButton.frame.size = CGSize(width: 150, height: 50)
+        getLocationButton.layer.cornerRadius = 5
+        getLocationButton.layer.borderWidth = 1
+        getLocationButton.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1).cgColor
+        getLocationButton.backgroundColor = .clear
+        getLocationButton.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        getLocationButton.setTitle("Mijn locatie", for: .normal)
+        getLocationButton.addTarget(self, action: #selector(MapViewController.findMyLocation), for: .touchUpInside)
+        view.addSubview(getLocationButton)
+        
+        getLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        getLocationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        getLocationButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
+        
     }
     
     func mapTypeChanged(_ segControl: UISegmentedControl) {
@@ -51,7 +70,33 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func findMyLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func centerMapOnLocation(_ location: CLLocation, mapView: MKMapView) {
+        let regionRadius: CLLocationDistance = 1000
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("MapViewController loaded its view")
+        if let userLocation = locations.last {
+            centerMapOnLocation(userLocation, mapView: mapView)
+            print(userLocation)
+        }
+        
+        // This will stop updating the location.
+        locationManager.stopUpdatingLocation()
     }
 }
