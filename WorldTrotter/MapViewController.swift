@@ -19,7 +19,10 @@ class MapViewController: UIViewController {
         mapView = MKMapView()
         view = mapView
         
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        let standardString = NSLocalizedString("Standard", comment: "Standard map view")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite map view")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
+        let segmentedControl = UISegmentedControl(items: [standardString, satelliteString, hybridString])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
         
@@ -37,14 +40,16 @@ class MapViewController: UIViewController {
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
+        let getLocationString = NSLocalizedString("Get my location", comment: "Get location button")
         let getLocationButton = UIButton()
         getLocationButton.frame.size = CGSize(width: 150, height: 50)
         getLocationButton.layer.cornerRadius = 5
         getLocationButton.layer.borderWidth = 1
-        getLocationButton.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1).cgColor
-        getLocationButton.backgroundColor = .clear
+        getLocationButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        getLocationButton.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.7)
+        getLocationButton.contentEdgeInsets = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)
         getLocationButton.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-        getLocationButton.setTitle("Mijn locatie", for: .normal)
+        getLocationButton.setTitle(getLocationString, for: .normal)
         getLocationButton.addTarget(self, action: #selector(MapViewController.findMyLocation), for: .touchUpInside)
         view.addSubview(getLocationButton)
         
